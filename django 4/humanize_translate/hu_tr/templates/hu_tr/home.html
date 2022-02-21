@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load humanize %} 
+{% block tiitle %}Home{% endblock tiitle %}
+{% block content %}
+<h1>Posts</h1>
+{% for post in posts %}
+<div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title text-center">{{post.title}}</h1>
+      <p class="card-text">{{post.body|truncatewords:50|linebreaks}}</p>
+      <a href="#" class="btn btn-primary">Details...</a>
+    </div>
+    <div class="card-footer text-muted">
+      {{post.publish|naturaltime }}
+    </div>
+  </div>
+{% endfor %}
+{% endblock content %}

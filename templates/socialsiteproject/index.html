@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Social Site</title>
+
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+	<!-- bootstrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	
+    <div class="sidebar">
+        <i id="vrglass" class="fa-solid fa-vr-cardboard"></i>
+
+        <div class="sidebarOption active">
+            <i class="fa-solid fa-house"></i>
+            <a href="#"> <h2>Home</h2> </a>
+
+        </div>
+
+        <div class="sidebarOption">
+            <i class="fa-solid fa-hashtag"></i>
+            <a href="#">  <h2>Popular Post</h2> </a>
+
+        </div>
+        <div class="sidebarOption">
+            <i class="fa-solid fa-bell"></i>
+            <a href="#"> <h2>Notifications</h2> </a>
+
+        </div>
+        <div class="sidebarOption">
+            <i class="fa-regular fa-list"></i>
+           <a href="#"> <h2>Messages</h2>   </a>
+
+        </div>
+        <div class="sidebarOption">
+            <img src="./img/sunflower1.jpg" style="border-radius:50%; width: 30px; height: 30px; margin-left: 10px;;" />
+            <a href="profile.html"><h2 style="margin-left: 38px;">Profile</h2></a>
+
+        </div>
+        <div class="sidebarOption">
+            <i class="fa-solid fa-square-caret-down"></i>
+            <a href="#"> <h2>More...</h2>  </a>
+        </div>
+
+        <button class="btn btn btn-primary border-0 text-white fw-bold mt-2" style="width: 100%; height: 50px; border-radius: 30px;">
+            Post
+        </button>
+
+    </div>
+
+
+    <!-- main body start-->
+
+    <div class="feed">
+        <div class="feed-header">
+            <h2>Home</h2>
+        </div>
+
+        <!-- post box start -->
+
+        <div class="postBox">
+            <form action="">
+                <div class="postbox-input">
+                <img src="./img/1.jpg" alt="iu" />
+                <input type="text" placeholder="What's on your mind??"/>
+                </div>
+              
+
+                <div class="easytweet">
+                    <a href="#">
+                <i class="fa-solid fa-image text-success"></i>
+                <span>Photos</span>
+                </a>
+                <a href="#">
+                <i class="fa-solid fa-video text-warning"></i><span>Videos</span>
+                </a>
+
+
+
+                <button class="postBox_postButton">Post
+                </button>
+                </div>
+            
+
+            </form>
+        </div>
+        <hr/>
+        
+        <!-- post box end -->
+
+        <!-- posting start -->
+
+
+        <div class="post">
+            <div class="post__avatar">
+                <img src="./img/1.jpg"/>
+            </div>
+
+            <div class="post__body">
+                <div class="post__header">
+                    <div class="post__headerText">
+                        <a href="profile.html"><h3>Dwlma</h3>
+                            <small>15 min ago</small>
+                            <i class="fa-solid fa-globe"></i></a>
+                    </div>
+                    <div class="post__headerDescription">
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit <a href="detailpage.html" style="text-decoration: none;">See More...</a><br/>
+                            <!-- <a href="#">See More</a>
+                             Nulla recusandae ad quia dolor pariatur?
+                             Tempora laborum laboriosam
+                             minus itaque, in quo reprehenderit temporibus dolorem, 
+                             nobis fuga perspiciatis ullam, laudantium quaerat! -->
+                        </p>
+                    </div>
+                </div>
+
+                <div class="photocontainer">
+                <img src="./img/tulip3.jpg" />
+                <img src="./img/tulip1.jfif"/> 
+                <img src="./img/2.jpg">
+            <img src="./img/tulip2.jfif"></div>
+
+                <div class="post__footer">
+                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-regular fa-comment-dots"></i>
+                    <i class="fa-solid fa-share"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="post">
+            <div class="post__avatar">
+                <img src="./img/1.jpg"/>
+            </div>
+
+            <div class="post__body">
+                <div class="post__header">
+                    <div class="post__headerText">
+                        <a href="profile.html"><h3>Dwlma</h3>
+                            <small class="text-muted">1 hour ago</small>
+                            <i class="fa-solid fa-globe"></i></a>
+                    </div>
+                    <div class="post__headerDescription">
+                        <p>
+                            Lorem nt quos dolorum? Officiis at fugiat facilis dolore sunt <a href="detailpage.html" style="text-decoration: none;">See More...</a>
+                        </p>
+                    </div>
+                </div>
+
+               <div class="photocontainer__second">
+                <img src="./img/tulip1.jfif"/> <br/>
+            <img src="./img/tulip2.jfif"></div>
+
+                <div class="post__footer">
+                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-regular fa-comment-dots"></i>
+                    <i class="fa-solid fa-share"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="post">
+            <div class="post__avatar">
+                <img src="./img/1.jpg"/>
+            </div>
+
+            <div class="post__body">
+                <div class="post__header">
+                    <div class="post__headerText">
+                        <a href="profile.html"><h3>Dwlma</h3>
+                            <small class="text-muted">23h</small>
+                            <i class="fa-solid fa-globe"></i></a>
+                    </div>
+                    <div class="post__headerDescription">
+                        <p>
+                            Lorem nt quos dolorum? Officiis at fugiat facilis dolore sunt <a href="detailpage.html" style="text-decoration: none;">See More...</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="photocontainer">
+                <img src="./img/rose.jpg" style="width: 600px; height: 250px;" />
+                </div>
+               
+                <div class="post__footer">
+                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-regular fa-comment-dots"></i>
+                    <i class="fa-solid fa-share"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="post">
+            <div class="post__avatar">
+                <img src="./img/1.jpg"/>
+            </div>
+
+            <div class="post__body">
+                <div class="post__header">
+                    <div class="post__headerText">
+                        <a href="profile.html"><h3>Dwlma</h3>
+                            <small class="text-muted">59 min ago</small>
+                            <i class="fa-solid fa-globe"></i>
+                        </a>
+                    </div>
+                    <div class="post__headerDescription">
+                        <p>
+                            Lorem nt quos dolorum? Officiis at fugiat facilis dolore sunt <a href="detailpage.html" style="text-decoration: none;">See More...</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="photocontainer__third">
+                    <img src="./img/sunflower.jpg" />
+                    <img src="./img/sunflower1.jpg"/> 
+                    <img src="./img/sunflower2.jfif">
+               </div>
+
+                <div class="post__footer">
+                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-regular fa-comment-dots"></i>
+                    <i class="fa-solid fa-share"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="post">
+            <div class="post__avatar">
+                <img src="./img/1.jpg"/>
+            </div>
+
+            <div class="post__body">
+                <div class="post__header">
+                    <div class="post__headerText">
+                        <a href="profile.html"><h3>Dwlma</h3>
+                            <smal class="text-muted">15 min ago</small>
+                            <i class="fa-solid fa-globe"></i>
+                        </a>
+                    </div>
+                    <div class="post__headerDescription">
+                        <p>
+                            Lorem nt quos dolorum? Officiis at fugiat facilis dolore sunt <a href="#" style="text-decoration: none;">See More...</a>
+                        </p>
+                    </div>
+                </div>
+
+                <img src="./img/2.jpg" style="width: 600px; height: 250px;"/>
+
+                <div class="post__footer">
+                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-regular fa-comment-dots"></i>
+                    <i class="fa-solid fa-share"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="post">
+            <div class="post__avatar">
+                <img src="./img/1.jpg"/>
+            </div>
+
+            <div class="post__body">
+                <div class="post__header">
+                    <div class="post__headerText">
+                        <a href="profile.html">
+                            <h3>Dwlma</h3>
+                            <small class="text-muted">15 min ago</small>
+                            <i class="fa-solid fa-globe"></i>
+                        </a>
+                    </div>
+                    <div class="post__headerDescription">
+                        <p>
+                            Lorem nt quos dolorum? Officiis at fugiat facilis dolore sunt <a href="#" style="text-decoration: none;">See More...</a>
+                        </p>
+                    </div>
+                </div>
+
+                <img src="./img/sunflower2.jfif" style="width: 600px; height: 250px;" />
+
+                <div class="post__footer">
+                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-regular fa-comment-dots"></i>
+                    <i class="fa-solid fa-share"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+       <!-- posting end -->
+    </div>
+
+
+    <!-- widgets start -->
+        <div class="widgets">
+        <!-- <div class="widgets__input">
+            <i class="fas fa-search"></i>
+            <input class="text-muted rounded" type="text" placeholder="Search here..."/>
+        </div> -->
+
+        <form class="d-flex" style="padding: 20px; margin-left: 30px;">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+
+          <div class="follow">
+              <h3>Suggest For You</h3>
+              <img src="./img/thae.jpg"/>
+              <span>Poem</span>
+              <button class="btn btn-outline-light bg-dark te rounded-pill text-light" type="button">Follow</button>
+          </div>
+
+          <div class="follow">
+            <img src="./img/thae.jpg"/>
+            <span>Programming</span>
+            <button class="btn btn-outline-light bg-dark te rounded-pill text-light" type="button" style="margin-left: 120px;">Follow</button>
+        </div>
+
+        <div class="follow">
+            <img src="./img/thae.jpg"/>
+            <span>Honey</span>
+            <button class="btn btn-outline-light bg-dark te rounded-pill text-light" type="button">Follow</button>
+        </div>
+
+        <!-- <div class="follow">
+            <img src="./img/thae.jpg"/>
+            <span>winmgs</span>
+            <button class="btn btn-outline-light bg-dark te rounded-pill text-light" type="button">Follow</button>
+        </div>
+
+        <div class="follow">
+            <img src="./img/thae.jpg"/>
+            <span>java programming</span>
+            <button class="btn btn-outline-light bg-dark te rounded-pill text-light" type="button">Follow</button>
+        </div> -->
+
+    </div>
+
+
+    
+
+			
+		
+
+		
+
+		
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" src="./main.js">
+	
+
+	
+</script>
+</body>
+</html>
