@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #my_applications
-    'todo.apps.TodoConfig'
+    'todo.apps.TodoConfig',
+    'widget_tweaks',
+    'django.contrib.humanize'
 ]
 
 MIDDLEWARE = [

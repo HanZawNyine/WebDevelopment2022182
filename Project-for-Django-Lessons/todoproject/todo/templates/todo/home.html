@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load humanize%}
+{% block title %}Welcome From Home{% endblock title %}
+{% block content %}
+<h1>Todo Lists</h1>
+
+<div class="card mb-3">
+    <form method="POST">
+        {% csrf_token %}
+        {% for form in task_form%}
+            <div class="card-body">
+                <div class=" row card-title">
+                
+                    <h5 class="col text-primary">{{form.label}}</h5>
+                    <button class="col-1 btn btn-primary">add</button>
+                
+                </div> 
+                {{form|add_class:"form-control"}}
+            </div>
+        {% endfor %}
+    </form>
+</div>
+
+
+{% for task in tasks %}
+<div class="card mb-3">
+    <div class="card-body">
+        <div class=" row card-title">
+            <h5 class="col text-primary">{{task.title}}</h5>
+            <div class="col">
+                <a class=" btn btn-warning" href={{task.update_task_url}}>update</a>
+                <a class=" btn btn-danger" href="{{task.remove_task_url}}">remove</a>
+            </div>
+        </div>
+        <p class=" card-text"><small class="text-muted">{{task.created|naturaltime}}</small></p>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Remove Post{% endblock title %}
+{% block content %}
+<h1>Are You Sure To Remove ?</h1>
+
+<div class="card mb-3">
+    <form method="POST">
+        {% csrf_token %}
+            <div class="card-body">
+                <div class=" row card-title">
+                    <h5 class="col text-primary">{{task.title}}</h5>
+                    <button type="submit" class="col-1 m-1 btn btn-danger">remove</button>
+                    <a class="col-1 m-1 btn btn-primary" href="{% url 'todo:all_tasks' %}">cancel</a>
+                </div> 
+                <p class=" card-text"><small class="text-muted">{{task.created}}</small></p>
+            </div>
+    </form>
+</div>
+
+{% endblock content %}
