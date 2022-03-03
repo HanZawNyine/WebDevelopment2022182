@@ -16,8 +16,8 @@ type MainHandler struct {
 
 func (handler *MainHandler) Invoke(res http.ResponseWriter, req *http.Request) {
 	data := map[string]interface{}{
-		"Hello":   "World",
-		"Version": handler.Config.Version,
+		"Description": "Deploy Golang Rest API",
+		"Version":     handler.Config.Version,
 	}
 	bytes, err := json.Marshal(data)
 

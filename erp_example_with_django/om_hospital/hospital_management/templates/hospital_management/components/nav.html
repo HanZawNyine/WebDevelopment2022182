@@ -1,0 +1,68 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" data-bs-toggle="dropdown" href="#" id="navbarDropdown">
+            <i class="bi bi-list" style="font-size:20px"></i>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Hospital</a></li>
+            <li><a class="dropdown-item" href="#">Apps</a></li>
+        </ul>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'HospitalManagement:patient_list_List' %}" style="font-size: 20px">Hospital</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mt-1 text-white" data-bs-toggle="dropdown" aria-current="page"
+                       id="navPatients"
+                       style="font-size: 16px">Patients</a>
+                    <ul class="dropdown-menu" aria-labelledby="navPatients" id="patients_id">
+                        <li><a class="dropdown-item" href="{% url 'HospitalManagement:patient_list_List' %}">Patients</a></li>
+                    </ul>
+                </li>
+            </ul>
+             <button type="button" class="me-3 btn text-white position-relative" data-bs-toggle="dropdown" href="#" id="messagedropdown">
+                  <i class="bi bi-chat text-white"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                    99+
+                    <span class="visually-hidden">unread messages</span>
+                </span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="messagedropdown" id="messagedropdownToggle">
+                <li><a class="dropdown-item" href="#">Chat Messages</a></li>
+                <li><a class="dropdown-item" href="#">Messages</a></li>
+                <li><a class="dropdown-item" href="#">All</a></li>
+            </ul>
+
+              <button type="button" class="me-3 btn text-white position-relative" data-bs-toggle="dropdown" href="#" id="notidropdown">
+                  <i class="bi bi-bell text-white"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                    99+
+                    <span class="visually-hidden">unread messages</span>
+                </span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="notidropdown" id="notidropdownToggle">
+                <li><a class="dropdown-item" href="#">noti</a></li>
+                <li><a class="dropdown-item" href="#">noti</a></li>
+                <li><a class="dropdown-item" href="#">noti</a></li>
+            </ul>
+            <a class="navbar-brand text-white" data-bs-toggle="dropdown" href="#" id="profileDropDown"
+               style="font-size: 15px">
+                <img src="{% static 'hospital_management/image/IG-annvmariv-1024x1016.webp' %}"
+                     class="rounded-circle o_user_avatar" style="width: 30px"/>
+                Agga Multi Academy
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="profileDropDown" id="profileDropDownToggle">
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="#">Change Password</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>

@@ -1,19 +1,20 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"net/http"
+	"os"
 	"rest_api_go/config"
 	"rest_api_go/handler"
 )
 
 func main() {
-
-	fmt.Println("Your Developement Server at http://127.0.0.1:8080")
+	port := os.Getenv("PORT")
+	log.Println("Listening on : " + port)
 	appconfig := config.NewConfig()
 	mainHandler := handler.NewMainHandler(appconfig)
 
 	http.HandleFunc("/", mainHandler.Invoke)
-	http.ListenAndServe(":8080", nil)
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 
 }

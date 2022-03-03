@@ -1,0 +1,86 @@
+{% extends 'hospital_management/base.html' %}
+{% block title %}Patients List{% endblock title %}
+ {% load humanize %}
+{% block content %}
+    <div style="width: 98%;" class="mx-2 row">
+        <div class="row">
+            <span class="col h5">Patients</span>
+            <form class="col d-flex">
+                {#                <button class="btn" type="submit"><i class="bi bi-search"></i></button>#}
+                <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+            </form>
+        </div>
+        <div class="col mt-2">
+            <a class="col btn text-white" href="{% url 'HospitalManagement:patient_create' %}"
+               style="background-color: #71639e;font-size: 15px">Create
+            </a>
+            <button class="col btn btn-outline-dark" type="submit" style="font-size: 15px">
+                <i class="bi bi-download"></i>
+            </button>
+            <button class="col btn" type="submit" style="background-color:#f1f1f1;font-size: 15px;margin-left: 41.9%"
+                    data-bs-toggle="dropdown" href="#" id="filterDropDown">
+                <i class="bi bi-funnel"></i> Filters
+            </button>
+            <ul class="dropdown-menu mt-1" aria-labelledby="filterDropDown" id="filterDropDownToggle">
+                <li><a class="dropdown-item" href="#">Hospital</a></li>
+                <li><a class="dropdown-item" href="#">Apps</a></li>
+            </ul>
+
+            <button class="col btn" type="submit" style="background-color:#f1f1f1;font-size: 15px;"
+                    data-bs-toggle="dropdown" href="#" id="GroupByDropDown">
+                <i class="bi bi-list"></i> Group_By
+            </button>
+            <ul class="dropdown-menu mt-1" aria-labelledby="GroupByDropDown" id="GroupByDropDownToggle">
+                <li><a class="dropdown-item" href="#">Group_By</a></li>
+                <li><a class="dropdown-item" href="#">Apps</a></li>
+            </ul>
+
+            <button class="col btn" type="submit" style="background-color:#f1f1f1;font-size: 15px;margin-left: 28%">
+                <i class="bi bi-list-task" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                   title="List"></i>
+            </button>
+            <a class="col btn" type="submit" href="{% url 'HospitalManagement:patient_list_kanban' %}"
+               style="background-color:#f1f1f1;font-size: 15px;">
+                <i class="bi bi-kanban" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                   title="Kanban"></i>
+            </a>
+
+            <table class="table mt-2 table-responsive">
+                <thead style="background-color: #f1f1f1">
+                <tr>
+                    <th scope="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        </div>
+                    </th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Slug</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Publish</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for patient in patients %}
+                    <tr>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                            </div>
+                        </td>
+                        <td>{{ patient.name }}</td>
+                        <td>{{ patient.slug }}</td>
+                        <td>{{ patient.age }}</td>
+                        <td>{{ patient.gender }}</td>
+                        <td  class="text-capitalize">{{ patient.state }}</td>
+                        <td>{{ patient.publish|naturaltime }}</td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+{% endblock content %}

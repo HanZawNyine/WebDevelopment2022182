@@ -1,0 +1,27 @@
+body {
+    background-color: white;
+}
+
+#navbar {
+    background-color: #71639e;
+}
+
+.dropdown-toggle::after {
+    content: none;
+}
+
+#profileDropDownToggle {
+    margin-left: 87%;
+}
+
+#messagedropdownToggle {
+    margin-left: 79%;
+}
+
+#notidropdownToggle {
+    margin-left: 83%;
+}
+
+#patients_id {
+    margin-left: 9%;
+}

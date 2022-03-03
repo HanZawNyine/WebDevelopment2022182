@@ -1,0 +1,70 @@
+{% extends 'hospital_management/base.html' %}
+{% block title %}Patients List{% endblock title %}
+ {% load humanize %}
+{% block content %}
+    <div style="width: 98%;" class="mx-2 row">
+        <div class="row">
+            <span class="col h5">Patients</span>
+            <form class="col d-flex">
+                {#                <button class="btn" type="submit"><i class="bi bi-search"></i></button>#}
+                <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+            </form>
+        </div>
+        <div class="col mt-2">
+            <a class="col btn text-white" href="{% url 'HospitalManagement:patient_create' %}"
+               style="background-color: #71639e;font-size: 15px">Create
+            </a>
+            <button class="col btn btn-outline-dark" type="submit" style="font-size: 15px">
+                <i class="bi bi-download"></i>
+            </button>
+            <button class="col btn" type="submit" style="background-color:#f1f1f1;font-size: 15px;margin-left: 41.9%"
+                    data-bs-toggle="dropdown" href="#" id="filterDropDown">
+                <i class="bi bi-funnel"></i> Filters
+            </button>
+            <ul class="dropdown-menu mt-1" aria-labelledby="filterDropDown" id="filterDropDownToggle">
+                <li><a class="dropdown-item" href="#">Hospital</a></li>
+                <li><a class="dropdown-item" href="#">Apps</a></li>
+            </ul>
+
+            <button class="col btn" type="submit" style="background-color:#f1f1f1;font-size: 15px;"
+                    data-bs-toggle="dropdown" href="#" id="GroupByDropDown">
+                <i class="bi bi-list"></i> Group_By
+            </button>
+            <ul class="dropdown-menu mt-1" aria-labelledby="GroupByDropDown" id="GroupByDropDownToggle">
+                <li><a class="dropdown-item" href="#">Group_By</a></li>
+                <li><a class="dropdown-item" href="#">Apps</a></li>
+            </ul>
+
+            <a class="col btn" type="button" style="background-color:#f1f1f1;font-size: 15px;margin-left: 28%"
+                    href="{% url 'HospitalManagement:patient_list_List' %}">
+                <i class="bi bi-list-task" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                   title="List"></i>
+            </a>
+            <button class="col btn" type="submit" style="background-color:#f1f1f1;font-size: 15px;">
+                <i class="bi bi-kanban" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                   title="Kanban"></i>
+            </button>
+        </div>
+        <div class="mt-3" style="background-color: #f1f1f1; width: 100%">
+            <div class="row row-cols-1 row-cols-md-3 g-4 mt-3 mb-3">
+                {% for patient in patients %}
+                <div class="col ">
+                    <div class="shadow-lg p-3 mb-2 bg-body rounded">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ patient.name }}</h5>
+                            <p class="card-text">Age : {{ patient.age }}</p>
+                            <p class="card-text">Gender : {{ patient.gender }}</p>
+                            <p class="card-text">Status : {{ patient.state }}</p>
+                            <p class="card-text">Publish : <i class="text-muted">{{ patient.publish|naturaltime }}</i></p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock content %}
