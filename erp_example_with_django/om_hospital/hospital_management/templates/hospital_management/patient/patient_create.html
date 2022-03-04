@@ -1,6 +1,7 @@
 {% extends 'hospital_management/base.html' %}
 {% block title %}Patients List{% endblock title %}
-
+{% load widget_tweaks %}
+{% load static %}
 {% block content %}
     <div style="width: 98%;" class="mx-2 row">
         <div class="row">
@@ -24,50 +25,40 @@
         </div>
         <div class="mt-3" style="width: 100%">
             <div class="container bg-light mt-3 shadow-lg p-3 mb-2 bg-white rounded">
-                <table class="table ">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    </tbody>
-                </table>
+                <form method="post">
+                    {%  csrf_token %}
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label for="exampleInputEmail1" class="form-label col">{{ new_patient.name.label }}</label>
+                            {{ new_patient.name|add_class:"form-control" }}
+                        </div>
+                        <div class="col mb-3">
+                            <label for="exampleInputEmail1" class="form-label col">{{ new_patient.age.label }}</label>
+                            {{ new_patient.age|add_class:"form-control" }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label for="exampleInputEmail1"
+                                   class="form-label col">{{ new_patient.gender.label }}</label>
+                            {{ new_patient.gender|add_class:"form-control" }}
+                        </div>
+                        <div class="col mb-3">
+                            <label for="exampleInputEmail1" class="form-label col">{{ new_patient.state.label }}</label>
+                            {{ new_patient.state|add_class:"form-control" }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label for="exampleInputEmail1" class="form-label col">{{ new_patient.note.label }}</label>
+                            {{ new_patient.note|add_class:"form-control" }}
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
         </div>
         <div class="mt-3 container mx-5" style="width: 94%">
-            {% load static %}
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <a class="nav-item text-muted" style="text-decoration: none" disabled>Send Message</a>

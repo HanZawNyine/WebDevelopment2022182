@@ -1,12 +1,11 @@
 {% extends 'hospital_management/base.html' %}
 {% block title %}Patients List{% endblock title %}
- {% load humanize %}
+{% load humanize %}
 {% block content %}
     <div style="width: 98%;" class="mx-2 row">
         <div class="row">
             <span class="col h5">Patients</span>
             <form class="col d-flex">
-                {#                <button class="btn" type="submit"><i class="bi bi-search"></i></button>#}
                 <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
             </form>
         </div>
@@ -35,52 +34,73 @@
                 <li><a class="dropdown-item" href="#">Apps</a></li>
             </ul>
 
-            <button class="col btn" type="submit" style="background-color:#f1f1f1;font-size: 15px;margin-left: 28%">
+            <a class="col btn" type="submit" style="background-color:#f1f1f1;font-size: 15px;margin-left: 28%"
+               href="{% url 'HospitalManagement:patient_list_List' %}">
                 <i class="bi bi-list-task" data-bs-toggle="tooltip" data-bs-placement="bottom"
                    title="List"></i>
-            </button>
+            </a>
             <a class="col btn" type="submit" href="{% url 'HospitalManagement:patient_list_kanban' %}"
                style="background-color:#f1f1f1;font-size: 15px;">
                 <i class="bi bi-kanban" data-bs-toggle="tooltip" data-bs-placement="bottom"
                    title="Kanban"></i>
             </a>
 
-            <table class="table mt-2 table-responsive">
-                <thead style="background-color: #f1f1f1">
-                <tr>
-                    <th scope="col">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                        </div>
-                    </th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Slug</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Gender</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Publish</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for patient in patients %}
-                    <tr>
-                        <td>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+            {% if request.path == "/patient_list&type=kanban" %}
+                <div class="mt-3" style="background-color: #f1f1f1; width: 100%">
+                    <a href="{% url 'HospitalManagement:patient_create' %}" style="text-decoration: none"
+                       class="row row-cols-1 row-cols-md-3 g-4 mt-3 mb-3 mx-2 text-dark">
+                        {% for patient in patients %}
+                            <div class="col ">
+                                <div class="shadow-lg p-3 mb-2 bg-body rounded">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ patient.name }}</h5>
+                                        <p class="card-text">Age : {{ patient.age }}</p>
+                                        <p class="card-text">Gender : {{ patient.gender }}</p>
+                                        <p class="card-text">Status : {{ patient.state }}</p>
+                                        <p class="card-text">Publish : <i
+                                                class="text-muted">{{ patient.publish|naturaltime }}</i></p>
+                                    </div>
+                                </div>
                             </div>
-                        </td>
-                        <td>{{ patient.name }}</td>
-                        <td>{{ patient.slug }}</td>
-                        <td>{{ patient.age }}</td>
-                        <td>{{ patient.gender }}</td>
-                        <td  class="text-capitalize">{{ patient.state }}</td>
-                        <td>{{ patient.publish|naturaltime }}</td>
+                        {% endfor %}
+                    </a>
+                </div>
+            {% else %}
+                <table class="table mt-2 table-responsive">
+                    <thead style="background-color: #f1f1f1">
+                    <tr>
+                        <th scope="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                            </div>
+                        </th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Slug</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Publish</th>
                     </tr>
-                {% endfor %}
-
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    {% for patient in patients %}
+                        <tr>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                </div>
+                            </td>
+                            <td>{{ patient.name }}</td>
+                            <td>{{ patient.slug }}</td>
+                            <td>{{ patient.age }}</td>
+                            <td>{{ patient.gender }}</td>
+                            <td class="text-capitalize">{{ patient.state }}</td>
+                            <td>{{ patient.publish|naturaltime }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
         </div>
-
     </div>
 {% endblock content %}

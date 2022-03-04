@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'hospital_management.apps.HospitalManagementConfig',
     'django.contrib.humanize',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
